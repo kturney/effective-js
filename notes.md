@@ -21,22 +21,22 @@
     var c = NaN;
     c === NaN;     // false
     ```
-  - objects are implictly converted to `string`s using their `toString()` method
-  - objects are implictly converted to `number`s using their `valueOf()` method
-  - avoid implementing `valueOf()` unless your object really represents a numeric type, otherwise you will get unexpected results when concating with a string (like during logging) because js will choose `valueOf()` over `toString()`
+  - objects are implicitly converted to `string`s using their `toString()` method
+  - objects are implicitly converted to `number`s using their `valueOf()` method
+  - avoid implementing `valueOf()` unless your object really represents a numeric type, otherwise you will get unexpected results when concatenating with a string (like during logging) because js will choose `valueOf()` over `toString()`
   - there are exactly 7 *falsy* values in js: `false`, `0`, `-0`, `""`, `NaN`, `null`, and `undefined`
   - the best way to check for an `undefined` param in a function that takes `number`s is either `typeof a === "undefined"` or `a === undefined` (I prefer the 2nd option)
 4. Prefer Primitives to Object Wrappers
   - js has 5 types of primitive values: `boolean`, `number`, `string`, `null`, and `undefined`
   - `typeof` will confusingly report that `null` is of type `"object"`
   - object wrappers around primitives (`String` and `Number`) check reference equality, not value equality
-  - calling functions or properties on a primitive value implictly convert them into a wrapper object
-  - the implicit conversion allows the strange behavior of setting a property on a primitve with no effect
+  - calling functions or properties on a primitive value implicitly convert them into a wrapper object
+  - the implicit conversion allows the strange behavior of setting a property on a primitive with no effect
   - property setting on primitives can lead to strange bugs when one does ot realize the value if a primitive and not an object
 5. Avoid Using `==` with Mixed Types
-  - the `==` operator applies a confusing set of implict coercions when its arguments are of different types
-  - it is good practice to use the `===` strict operator so that readers can easily tell no implict conversion is expected
-  - if conversion is needed, do it explictly
+  - the `==` operator applies a confusing set of implicit coercions when its arguments are of different types
+  - it is good practice to use the `===` strict operator so that readers can easily tell no implicit conversion is expected
+  - if conversion is needed, do it explicitly
 6. Learn the Limits of Semicolon Insertion
   - semicolons can be omitted in certain contexts thanks to *automatic semicolon conversion*
   - Rules of semicolon insertion:
@@ -46,5 +46,5 @@
       - you can't leave off a statement's semicolon if the next line's initial token could be interpreted as a continuation of the statement
       - there are 5 problematic characters: (, [, +, - and /
       - a rule sometimes used to protect against the problematic characters is to prefix lines starting with a pc with a `;`
-      - js will auto insert semicolons after `return`, `throw`, `break`, postfix `++`, and postfix `--`; so arguments must be on the same line to be interpretted correctly
-    3. Semicolons are never inserted as seperators in the head of a for loop or as empty statements
+      - js will auto insert semicolons after `return`, `throw`, `break`, postfix `++`, and postfix `--`; so arguments must be on the same line to be interpreted correctly
+    3. Semicolons are never inserted as separators in the head of a for loop or as empty statements
