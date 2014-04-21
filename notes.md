@@ -48,3 +48,19 @@
       - a rule sometimes used to protect against the problematic characters is to prefix lines starting with a pc with a `;`
       - js will auto insert semicolons after `return`, `throw`, `break`, postfix `++`, and postfix `--`; so arguments must be on the same line to be interpreted correctly
     3. Semicolons are never inserted as separators in the head of a for loop or as empty statements
+7. Think of Strings as Sequences of 16-bit Code Units
+  - if a character is represented by a code point higher than 2^16 then it will throw off string functions (like `length` and `charAt`) because it will be reported as 2 characters
+8. Minimize Use of the Global Object
+  - avoid declaring global variables
+  - declare variables as locally as possible
+  - avoid adding properties to the global object
+  - use the global object for platform feature detection
+9. Always Declare Local Variables
+  - Always declare new local variables with `var`
+  - Consider using lint tools to help check for unbound variables
+10. Avoid `with`
+  - `with` binds all properties of the object and *all of its prototypes* to the scope
+  - trying to use a variable from outside the `with` scope that has the same name as a property on the `with` object can cause unexpected results because the object's property will be used
+  - there are pretty much no good cases in which to use `with`
+11. Get Comfortable with Closures
+  - 
